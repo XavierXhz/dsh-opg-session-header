@@ -1,0 +1,26 @@
+# dsh-opg-session-header — profile bundle patch.
+#
+# 本插件只插入一行 host 插件。装载优先级：
+#   随 dsh 发行的 bundle 层 → 本插件的 bundle 层 → profile 自己的 cordis.patch.yml。
+# 因此可以在 profile 的 cordis.patch.yml 里按 id 覆盖本行配置，或直接禁用：
+#
+#   - id: opg-session-header
+#     disabled: true
+#
+# 可配置键（全部有默认值）：
+#   enabled             boolean，默认 true；false 时插件挂载但完全不注入
+#   value               'auto' | 'uuid' | 'id'，默认 'auto'；
+#                       auto 在 openai-responses 上发 session-<uuid>，其余协议发裸 uuid
+#   sessionlessFallback boolean，默认 true；无 sessionId 的辅助调用（自动审查、
+#                       session title 等）借用发起这次调用的会话 id
+#
+# 路由范围是代码常量（opencode-go 前缀），故意不做成配置项：范围无法被写错，
+# 也不会把网关专用头发给不需要它的 provider。
+
+- insert:
+    - id: opg-session-header
+      name: dsh-opg-session-header
+      config:
+        enabled: true
+        value: auto
+        sessionlessFallback: true

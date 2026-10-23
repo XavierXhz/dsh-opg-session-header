@@ -1,0 +1,48 @@
+{
+  "name": "dsh-opg-session-header",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local DeepSeek Harness plugin: per-conversation x-opencode-session for every opencode-go route, including sessionless auxiliary calls such as the official Auto review reviewer request.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./session-header": "./lib/session-header.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./icon": "./icon.svg",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/session-header.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "verify:gateway": "node scripts/verify-gateway.mjs",
+    "verify:status": "node scripts/status.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "plugin",
+    "opencode-go",
+    "x-opencode-session",
+    "auto-review"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

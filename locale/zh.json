@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OPG 会话头（修复自动审查）",
+    "description": "在 pi-ai 适配器分发点为所有 opencode-go 开头的路由按会话补上 x-opencode-session 头。与 fetch 补丁类插件的关键区别是：无 sessionId 的辅助调用也会被补上，因此 dsh 官方自动审查的评审请求不再因 400 MissingSessionID 失败，并且每个会话仍各占一个缓存桶。"
+  }
+}

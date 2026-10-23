@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OPG session header (Auto review fix)",
+    "description": "Adds a per-conversation x-opencode-session header to every opencode-go route at the pi-ai adapter dispatch point. Unlike fetch-shim plugins it also covers sessionless calls, so the official Auto review reviewer request stops failing with 400 MissingSessionID and each conversation keeps its own cache bucket."
+  }
+}
