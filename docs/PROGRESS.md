@@ -1,5 +1,5 @@
 # PROGRESS — 插件OPG集成
-> 最后更新: 2026-10-23 22:25
+> 最后更新: 2026-10-23 22:35
 
 ## 当前状态
 插件已实现、测试并安装进本机 web profile（热生效）。核心结论：mathangler 路线的适配器分发点注入在本机
@@ -7,6 +7,7 @@
 未采用。剩余可选动作：由用户在 GUI 切一次 Auto 权限做最终人工确认。
 
 ## 已完成
+- [2026-10-23] 发布到 GitHub 公开仓库：<https://github.com/XavierXhz/dsh-opg-session-header>（脱敏本机路径/内网 IP/会话 id，提交邮箱用 GitHub noreply）
 - [2026-10-23] 写入插件实现：`lib/session-header.js` + `lib/index.js`（adapter 注入 + initiator 回退 + 状态端点）
 - [2026-10-23] 补齐 bundle 资源：`package.json`、`cordis.patch.yml`、`locale/{en,zh}.json`、`icon.svg`、`LICENSE`
 - [2026-10-23] 测试：`node --test test/*.test.mjs` 19/19 通过（含本机真实 `PiAiAdapter` 集成）
@@ -17,7 +18,7 @@
 
 ## 下一步
 - [ ] 在 GUI 权限选择器切到「自动审查」，跑一次 `bash`，再用 `node scripts/status.mjs` 确认 `counters.inherited` 增长、`sessionless` 为 0
-- [ ] 决定是否 `git init` 并提交本仓库（用户确认后再做）
+- [x] `git init` 并发布到 GitHub 公开仓库（2026-10-23 完成）
 - [ ] dsh 升级后复跑 `node --test test/*.test.mjs` 与 `node scripts/status.mjs`，按 KNOWN-ISSUES 更新注入适配
 
 ## 已知问题
